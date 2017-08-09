@@ -86,7 +86,7 @@ function createTweetElement(tweetData){
 //This following function appends the outcome of the function from app.js.
  function renderTweets(tweets){
   tweets.forEach(function (tweet) {
-    $('.container-tweet').append(createTweetElement(tweet));
+    $('.container-tweet').prepend (createTweetElement(tweet));
   });
 }
 //Retreives the JSON from /tweets and renders it in renderTweets.
@@ -107,9 +107,16 @@ function loadTweets(){
       alert ("Tweet does not meet requirements.")
     }
     else {
-      console.log($(this).serialize());
-      textArea.val("")
-      alert ("Tweet'd!")
+      $.ajax({
+        url: '/tweets',
+        method: 'post',
+        data: $(this).serialize()
+      }).done(function (){
+        console.log($(this).serialize());
+        textArea.val("");
+        alert ("Tweet'd!");
+        loadTweets();
+      })
     }
   });
 
@@ -117,6 +124,10 @@ function validateForm() {
   let x = document.forms
 }
 
+
+
 loadTweets();
+
+
 
 });
