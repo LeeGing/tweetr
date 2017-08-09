@@ -4,14 +4,67 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
+// function createTweetHeader(tweetUser) {
+// 	// let $tweetHeader = $('<header>').attr('class', 'tweet-cont-header');
+// 	// let $tweetName = $('<section>').attr('class', 'user-name').text(tweetUser.name);
+// 	// let $tweetAtName = $ ('<section>').attr('class', 'at-name').text(tweetUser.handle);
+// 	// let $img = $('<img>').attr('src', tweetUser.avatars.small);
+// 	// // $tweetName.append(tweetObj.user.name);
+// 	// $tweetHeader.append($img);
+// 	// $tweetHeader.append($tweetName);
+// 	// $tweetHeader.append($tweetAtName);
+
+// 	return $tweetHeader;
+// }
+
+// function createTweetFooter(tweetUser) {
+// 	let $tweetFooter = $('<footer>').text(tweetUser.created_at)
+// }
+
+// function createTweetElement(tweetObj){
+//   // TODO: Turn tweetObj into an <article> element
+
+//   let $tweet = $('<article>').attr('class', 'tweet-holder');
+//   // Add stuff to my article element using data from my tweetObj
+//   $tweet.append(createTweetHeader(tweetObj.user));
+//   $tweet.append($('<div>').text(tweetObj.content.text));
+//   $tweet.append(createTweetFooter(tweetObj.user).);
 
 
-function createTweetElement(){
-	
+
+
+//   return $tweet;
+// }
+
+function escape(str) {
+  var div = document.createElement('div');
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+}
+
+function createSectionElement(tweetData){
+	  const html = `<article class="tweet-holder">
+        <header class ="tweet-cont-header">
+          <section class="at-picture">
+            <img src=' ${tweetData.user.avatars.small}'>
+          </section>
+          <section class="at-name"> ${tweetData.user.handle} </section>
+          <section class="user-name">${tweetData.user.name}</section>
+          <section class="separator"></section>
+        </header>
+        <div> ${escape(tweetData.content.text)}</div>
+        <footer> ${moment(tweetData.created_at).fromNow()}
+          <i class="fa fa-flag-o" aria-hidden="true"></i>
+          <i class="fa fa-refresh" aria-hidden="true"></i>
+          <i class="fa fa-heart-o" aria-hidden="true"></i>
+        </footer>
+      </article>`;
+      return html;
+
 }
 
 
-var tweetDB = [
+var tweets = [
 	{
     "user": {
       "name": "Newton",
@@ -54,6 +107,8 @@ var tweetDB = [
     "content": {
       "text": "Es ist nichts schrecklicher als eine tätige Unwissenheit."
     },
-    "created_at": 1461113796368
+    "created_at": 1502246968
   }
 ]
+
+

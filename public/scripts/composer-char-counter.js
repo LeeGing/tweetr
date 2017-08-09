@@ -13,7 +13,7 @@ $( document ).ready(function() {
 	$('textarea').keyup(function() {
 		var length = $(this).val().length;
 		length = maxLength-length;
-		$('.counter').text($(this).val().length);
+		$('.counter').text(length);
 		// If the counter is 0 or less, the counter will turn red.
 		if ( length <= 0 ){
 			$('.counter').css('color', 'red');
@@ -21,6 +21,10 @@ $( document ).ready(function() {
 			$('.counter').css('color', 'black');
 		}
 	});
+
+	tweets.forEach(function (tweet) {
+	  $('section.container-tweet').append(createSectionElement(tweet));
+  });
 });
 
 // function countChar() {
