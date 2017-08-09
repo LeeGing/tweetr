@@ -13,7 +13,7 @@ $( document ).ready(function() {
 	$('textarea').keyup(function() {
 		var length = $(this).val().length;
 		length = maxLength-length;
-		$('.counter').text(length);
+		$('.counter').text($(this).val().length);
 		// If the counter is 0 or less, the counter will turn red.
 		if ( length <= 0 ){
 			$('.counter').css('color', 'red');
@@ -38,3 +38,7 @@ $( document ).ready(function() {
 //  $('textarea').change(countChar);
 //  $('textarea').keyup(countChar);
 // });
+
+
+// ["#overlay","#,modal"].forEach(show);
+// document.querySelector(#modal)
