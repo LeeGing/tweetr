@@ -4,46 +4,66 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-// function createTweetHeader(tweetUser) {
-// 	// let $tweetHeader = $('<header>').attr('class', 'tweet-cont-header');
-// 	// let $tweetName = $('<section>').attr('class', 'user-name').text(tweetUser.name);
-// 	// let $tweetAtName = $ ('<section>').attr('class', 'at-name').text(tweetUser.handle);
-// 	// let $img = $('<img>').attr('src', tweetUser.avatars.small);
-// 	// // $tweetName.append(tweetObj.user.name);
-// 	// $tweetHeader.append($img);
-// 	// $tweetHeader.append($tweetName);
-// 	// $tweetHeader.append($tweetAtName);
+$( document ).ready(function() {
+// var tweets = [
+//   {
+//     "user": {
+//       "name": "Newton",
+//       "avatars": {
+//         "small":   "https://vanillicon.com/788e533873e80d2002fa14e1412b4188_50.png",
+//         "regular": "https://vanillicon.com/788e533873e80d2002fa14e1412b4188.png",
+//         "large":   "https://vanillicon.com/788e533873e80d2002fa14e1412b4188_200.png"
+//       },
+//       "handle": "@SirIsaac"
+//     },
+//     "content": {
+//       "text": "If I have seen further it is by standing on the shoulders of giants"
+//     },
+//     "created_at": 1461116232227
+//   },
+//   {
+//     "user": {
+//       "name": "Descartes",
+//       "avatars": {
+//         "small":   "https://vanillicon.com/7b89b0d8280b93e2ba68841436c0bebc_50.png",
+//         "regular": "https://vanillicon.com/7b89b0d8280b93e2ba68841436c0bebc.png",
+//         "large":   "https://vanillicon.com/7b89b0d8280b93e2ba68841436c0bebc_200.png"
+//       },
+//       "handle": "@rd" },
+//     "content": {
+//       "text": "Je pense , donc je suis"
+//     },
+//     "created_at": 1461113959088
+//   },
+//   {
+//     "user": {
+//       "name": "Johann von Goethe",
+//       "avatars": {
+//         "small":   "https://vanillicon.com/d55cf8e18b47d4baaf60c006a0de39e1_50.png",
+//         "regular": "https://vanillicon.com/d55cf8e18b47d4baaf60c006a0de39e1.png",
+//         "large":   "https://vanillicon.com/d55cf8e18b47d4baaf60c006a0de39e1_200.png"
+//       },
+//       "handle": "@johann49"
+//     },
+//     "content": {
+//       "text": "Es ist nichts schrecklicher als eine tätige Unwissenheit."
+//     },
+//     "created_at": 1502246968
+//   }
+// ]
 
-// 	return $tweetHeader;
-// }
-
-// function createTweetFooter(tweetUser) {
-// 	let $tweetFooter = $('<footer>').text(tweetUser.created_at)
-// }
-
-// function createTweetElement(tweetObj){
-//   // TODO: Turn tweetObj into an <article> element
-
-//   let $tweet = $('<article>').attr('class', 'tweet-holder');
-//   // Add stuff to my article element using data from my tweetObj
-//   $tweet.append(createTweetHeader(tweetObj.user));
-//   $tweet.append($('<div>').text(tweetObj.content.text));
-//   $tweet.append(createTweetFooter(tweetObj.user).);
-
-
-
-
-//   return $tweet;
-// }
-
+// This following function is to prevent XSS.
 function escape(str) {
   var div = document.createElement('div');
   div.appendChild(document.createTextNode(str));
   return div.innerHTML;
 }
 
-function createSectionElement(tweetData){
-	  const html = `<article class="tweet-holder">
+//Creates a parent article containing all of the necessary elements for a tweet.
+//This element is rendered in composer-char-counter.js
+function createTweetElement(tweetData){
+    const html = 
+      `<article class="tweet-holder">
         <header class ="tweet-cont-header">
           <section class="at-picture">
             <img src=' ${tweetData.user.avatars.small}'>
@@ -60,55 +80,43 @@ function createSectionElement(tweetData){
         </footer>
       </article>`;
       return html;
-
 }
 
 
-var tweets = [
-	{
-    "user": {
-      "name": "Newton",
-      "avatars": {
-        "small":   "https://vanillicon.com/788e533873e80d2002fa14e1412b4188_50.png",
-        "regular": "https://vanillicon.com/788e533873e80d2002fa14e1412b4188.png",
-        "large":   "https://vanillicon.com/788e533873e80d2002fa14e1412b4188_200.png"
-      },
-      "handle": "@SirIsaac"
-    },
-    "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants"
-    },
-    "created_at": 1461116232227
-  },
-  {
-    "user": {
-      "name": "Descartes",
-      "avatars": {
-        "small":   "https://vanillicon.com/7b89b0d8280b93e2ba68841436c0bebc_50.png",
-        "regular": "https://vanillicon.com/7b89b0d8280b93e2ba68841436c0bebc.png",
-        "large":   "https://vanillicon.com/7b89b0d8280b93e2ba68841436c0bebc_200.png"
-      },
-      "handle": "@rd" },
-    "content": {
-      "text": "Je pense , donc je suis"
-    },
-    "created_at": 1461113959088
-  },
-  {
-    "user": {
-      "name": "Johann von Goethe",
-      "avatars": {
-        "small":   "https://vanillicon.com/d55cf8e18b47d4baaf60c006a0de39e1_50.png",
-        "regular": "https://vanillicon.com/d55cf8e18b47d4baaf60c006a0de39e1.png",
-        "large":   "https://vanillicon.com/d55cf8e18b47d4baaf60c006a0de39e1_200.png"
-      },
-      "handle": "@johann49"
-    },
-    "content": {
-      "text": "Es ist nichts schrecklicher als eine tätige Unwissenheit."
-    },
-    "created_at": 1502246968
-  }
-]
+//This following function appends the outcome of the function from app.js.
+ function renderTweets(tweets){
+  tweets.forEach(function (tweet) {
+    $('.container-tweet').append(createTweetElement(tweet));
+  });
+}
+//Retreives the JSON from /tweets and renders it in renderTweets.
+function loadTweets(){
+  $.getJSON('/tweets', renderTweets) 
+}
 
+//This following block, prevents the default actions of 
+//the tweeter form. It prevents it from going to /tweet.
+  $('form').submit(function(e) {
+    // alert('Submit Canceled') // THIS IS UNNECESSARY - FOR TESTING PURPOSES.
+    e.preventDefault();
+//If unacceptable, dont accept it.
+    var textArea = $(this).find('textarea')
+    var formLength = textArea.val().length;
+    console.log(formLength)
+    if (formLength > 140 || formLength === null || formLength === ""){
+      alert ("Tweet does not meet requirements.")
+    }
+    else {
+      console.log($(this).serialize());
+      textArea.val("")
+      alert ("Tweet'd!")
+    }
+  });
 
+function validateForm() {
+  let x = document.forms
+}
+
+loadTweets();
+
+});

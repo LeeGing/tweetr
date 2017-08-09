@@ -8,6 +8,8 @@
 	padding-bottom: 0em;
 	position: fixed;
 	width: 100%;
+	opacity:1;
+	z-index: 1;
 
 }
 

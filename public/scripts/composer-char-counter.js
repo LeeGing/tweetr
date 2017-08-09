@@ -21,10 +21,6 @@ $( document ).ready(function() {
 			$('.counter').css('color', 'black');
 		}
 	});
-
-	tweets.forEach(function (tweet) {
-	  $('section.container-tweet').append(createSectionElement(tweet));
-  });
 });
 
 // function countChar() {
@@ -46,3 +42,5 @@ $( document ).ready(function() {
 
 // ["#overlay","#,modal"].forEach(show);
 // document.querySelector(#modal)
+
+
