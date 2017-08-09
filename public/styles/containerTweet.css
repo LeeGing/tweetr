@@ -65,12 +65,11 @@
 }
 
 article.tweet-holder {
-	opacity: 0.7;
+	opacity: 0.9;
 	background-color: gray;
 	border-radius: 5px;
 	border-style: solid;
 	margin-bottom: 30px;
-
 }
 
 article.tweet-holder:hover{ 
@@ -86,9 +85,6 @@ article.tweet-holder i {
 
 article.tweet-holder:hover i {
 	display: inline;
-/*	float:right;
-	padding-left: 10px;
-	padding-right: 5px;*/
 }
 
 .tweet-holder footer{

@@ -120,11 +120,13 @@ function loadTweets(){
     }
   });
 
-function validateForm() {
-  let x = document.forms
-}
 
-
+//With this event handler, the Compose button will now appear and disapear
+//with every click.
+$('button').click(function(){
+  $('.new-tweet').toggle();
+  $('textarea').focus()
+});
 
 loadTweets();
 
