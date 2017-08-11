@@ -1,9 +1,3 @@
-/*
- * Client-side JS logic goes here
- * jQuery is already loaded
- * Reminder: Use (and do all your DOM work in) jQuery's document ready function
- */
-
 $( document ).ready(function() {
 
 // This following function is to prevent XSS.
@@ -37,29 +31,28 @@ $( document ).ready(function() {
   }
 
 //This following function appends the outcome of the function from app.js.
- function renderTweets(tweets){
-  tweets.forEach(function (tweet) {
-    $('.container-tweet').prepend (createTweetElement(tweet));
-  });
-}
+  function renderTweets(tweets){
+    tweets.forEach(function (tweet) {
+      $('.container-tweet').prepend (createTweetElement(tweet));
+    });
+  }
 
 //Retreives the JSON from /tweets and renders it in renderTweets.
-function loadTweets(){
-  $.getJSON('/tweets', renderTweets) 
-}
+  function loadTweets(){
+    $.getJSON('/tweets', renderTweets) 
+  }
 
 //This following block, prevents the default actions of 
 //the tweeter form. It prevents it from going to /tweet.
   $('form').submit(function(e) {
-
-    // alert('Submit Canceled') // THIS IS UNNECESSARY - FOR TESTING PURPOSES.
+     // alert('Submit Canceled') // THIS IS UNNECESSARY - FOR TESTING PURPOSES.
     e.preventDefault();
 
 //If unacceptable, dont accept it.
     var textArea = $(this).find('textarea')
     var formLength = textArea.val().length;
     console.log(formLength)
-    if (formLength > 140 || formLength === null || formLength === ""){
+    if (formLength > 140 || formLength === null || formLength === 0){
       alert ("Tweet does not meet requirements.")
     }
     else {
@@ -78,11 +71,11 @@ function loadTweets(){
 
 //With this event handler, the Compose button will now appear and disapear
 //with every click.
-$('button').click(function(){
-  $('.new-tweet').toggle();
-  $('textarea').focus()
-});
+  $('button').click(function(){
+    $('.new-tweet').slideToggle();
+    $('textarea').focus()
+  });
 
-loadTweets();
+  loadTweets();
 
 });

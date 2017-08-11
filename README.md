@@ -15,3 +15,30 @@ This repository is the starter code for the project: Students will fork and clon
 
 - Express
 - Node 5.10.x or above
+
+/////
+
+
+# Tweeter Project
+
+Tweeter is web application built with Express and MongoDB that allows users to post text onto a web page. 
+
+## Final Product
+
+["Screenshot of Tweeter Application without Textarea"] (https://github.com/LeeGing/express_server/blob/master/docs/urls_login.png?raw=true)
+
+["Screenshot of Tweeter Application with Textarea"] (https://github.com/LeeGing/express_server/blob/master/docs/urls_page.png?raw=true)
+
+## Dependencies
+
+- Body-Parser
+- Chance
+- Express
+- MD5
+- Moment
+- MongoDB
+
+## Getting Started
+
+- Install all dependencies (using `npm install` command).
+- Run the development web server using `npm run local` command. 

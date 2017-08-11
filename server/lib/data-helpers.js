@@ -19,6 +19,5 @@ module.exports = function makeDataHelpers(db) {
     // simulateDelay(() => {
       db.collection("tweets").find().toArray(callback);
    }
-
  };
 }
