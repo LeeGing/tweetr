@@ -6,40 +6,33 @@
 html {
   box-sizing: border-box;
 }
+
 *, *:before, *:after {
   box-sizing: inherit;
 }
-
-/*
- * Global layout stuff
- */
 
 body {
   margin: 0;
   color: #244751;
   background-color: #eee;
 	font-family: 'Roboto Condensed', sans-serif;
-
 }
 
 body .container {
 	color: black;
-	padding-left: 20px;
-	padding-right: 20px;
+	padding-left: 10px;
+	padding-right: 10px;
 }
 
 main {
 	background-color: white;
 	margin: auto;
 	padding-top: 120px;
-	padding-bottom: 120px;
+	padding-bottom: 20px;
 	text-align: left;
 	width: 450px;
 }
 
 textarea {
 	width: 100%;
-	}
-/*
- * Additional CSS can be defined below or in other CSS files, as per instructions
- */
+}

@@ -36,13 +36,13 @@ $( document ).ready(function() {
         return html;
   }
 
-
 //This following function appends the outcome of the function from app.js.
  function renderTweets(tweets){
   tweets.forEach(function (tweet) {
     $('.container-tweet').prepend (createTweetElement(tweet));
   });
 }
+
 //Retreives the JSON from /tweets and renders it in renderTweets.
 function loadTweets(){
   $.getJSON('/tweets', renderTweets) 
@@ -51,8 +51,10 @@ function loadTweets(){
 //This following block, prevents the default actions of 
 //the tweeter form. It prevents it from going to /tweet.
   $('form').submit(function(e) {
+
     // alert('Submit Canceled') // THIS IS UNNECESSARY - FOR TESTING PURPOSES.
     e.preventDefault();
+
 //If unacceptable, dont accept it.
     var textArea = $(this).find('textarea')
     var formLength = textArea.val().length;
@@ -82,7 +84,5 @@ $('button').click(function(){
 });
 
 loadTweets();
-
-
 
 });

@@ -2,26 +2,24 @@
 	padding-top: 5px;
 	padding-bottom: 10px;
 	border-radius: 5px;
-	border-style: solid;
+	border: 3px solid;
 	background-color: #D3D3D3;
-	padding-left: 50px;
-	padding-right: 50px;
-}
-
-
-
-.counter {
-	float:right;
+	padding-left: 20px;
+	padding-right: 20px;
 }
 
 h1 { 
 	border-bottom: 2px solid black;
 }
 
-
 textarea {
 	padding-top: 5px;
 	padding-bottom: 5px;
 	padding-left: 5px;
 	padding-right: 5px;
+	height: 60px;
+}
+
+.counter {
+	float:right;
 }
